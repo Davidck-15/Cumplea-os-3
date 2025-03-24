@@ -1,0 +1,79 @@
+/* Texto principal con degradado, glow y animación flotante */
+.titulo-feliz {
+    font-family: 'Brush Script MT', cursive;
+    text-align: center;
+    font-size: 4rem;
+    background: linear-gradient(45deg, #ff66cc, #ff99cc, #ffccff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    margin: 30px 0;
+    animation: flotante 3s ease-in-out infinite alternate, brilloGlow 2s infinite alternate;
+  }
+  
+  /* Estrellas brillando alrededor */
+  .titulo-feliz::before,
+  .titulo-feliz::after {
+    content: "✨";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    animation: flotanteLento 4s infinite alternate;
+    opacity: 0.8;
+  }
+  .titulo-feliz::before {
+    left: -40px;
+  }
+  .titulo-feliz::after {
+    right: -40px;
+    animation-delay: 2s;
+  }
+  
+  /* Efecto máquina de escribir solo en la primera línea */
+  .typing {
+    overflow: hidden;
+    border-right: 0.15em solid #ff66cc;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.1em;
+    animation: typing 4s steps(30, end), blink-caret 0.7s step-end infinite;
+  }
+  
+  /* Efecto especial para el número 15 (latido) */
+  .numero-15 {
+    animation: latido 1.5s infinite;
+    text-shadow: 0 0 20px #ff99cc, 0 0 30px #ff66cc;
+  }
+  
+  /* Keyframes */
+  @keyframes flotante {
+    from { transform: translateY(0); }
+    to { transform: translateY(-12px); }
+  }
+  
+  @keyframes flotanteLento {
+    from { transform: translateY(0); opacity: 0.7; }
+    to { transform: translateY(-10px); opacity: 1; }
+  }
+  
+  @keyframes brilloGlow {
+    from { text-shadow: 0 0 15px #ff66cc, 0 0 30px #ff99cc; }
+    to { text-shadow: 0 0 40px #ff66cc, 0 0 80px #ff99cc; }
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #ff66cc; }
+  }
+  
+  @keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+  
